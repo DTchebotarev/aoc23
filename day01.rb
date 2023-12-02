@@ -12,13 +12,13 @@ $numberHash = {
   'nine'  => '9'
 }
 
-$regex = Regexp.new('(?=(\d|'+$numberHash.keys.join('|')+'))')
-
 puts input
   .split
   .map{|l| l.scan(/\d/).then{|n| (n.first + n.last)}.to_i}
   .sum
+
+regex = Regexp.new('(?=(\d|'+$numberHash.keys.join('|')+'))')
 puts input
   .split
-  .map{|l| l.scan($regex).flatten.map{|d| d =~ /\d/ ? d : $numberHash[d]}.then{|n| (n.first + n.last).to_i}}
+  .map{|l| l.scan(regex).flatten.map{|d| d =~ /\d/ ? d : $numberHash[d]}.then{|n| (n.first + n.last).to_i}}
   .sum
