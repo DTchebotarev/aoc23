@@ -1,4 +1,4 @@
-input = File.read('inputs/day12e').split("\n")
+input = File.read('inputs/day12').split("\n")
 
 def validate(combined, start = 0, original_broken = nil, call_depth = 0)
   puts combined if call_depth == 0
